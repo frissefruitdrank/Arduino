@@ -1,0 +1,63 @@
+#include <Servo.h>                        
+
+Servo handServo;                          // create servo object to control a servo
+Servo boxServo;
+
+int switchStatus=0, action=1, vot, randNumber=0;                   
+const int ledPin = 13;                    
+const int frontSwitchPin = 2;             // analog pin used to connect the potentiometer
+const int handServoPin = 5;
+const int boxServoPin = 6;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  pinMode(ledPin, OUTPUT);                  
+  digitalWrite(ledPin,HIGH);
+  
+  handServo.attach(handServoPin);              //attaches the servo on pin 9 to the servo object
+  boxServo.attach(boxServoPin);
+  handServo.write(180);                        // sets the servo position according to the scaled value
+  boxServo.write(70);
+
+  //randomSeed(analogRead(0));
+}
+
+
+void loop()
+{
+  switchStatus = digitalRead(frontSwitchPin); 
+  //action = random(1,16);
+  
+  if (switchStatus == LOW){                   
+    
+    {
+      Serial.println("Action 1");           
+      for (int i = 70; i <= 110; i++)
+      {
+        boxServo.write(i);    // sets the servo position according to the scaled value
+        delay(20);          // waits for the servo to get there
+      }
+      for (int i = 180; i >= 35; i--)
+      {
+        handServo.write(i);
+        delay(20);
+      }
+      delay(1000);
+      handServo.write(26);
+      delay(200);
+      for (int i = 26; i <=180; i++)
+      {
+        handServo.write(i);
+        delay(20);
+      }
+      for (int i = 110; i >= 70; i--)
+      {
+        boxServo.write(i);
+        delay(20);
+      }
+      action++;
+    }
+}
