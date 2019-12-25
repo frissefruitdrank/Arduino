@@ -40,13 +40,13 @@ void loop()
         for (int i = 70; i <= 140; i++)
         {
           boxServo.write(i);    // sets the servo position according to the scaled value
-          delay(15);          // waits for the servo to get there
+          delay(12);          // waits for the servo to get there
         }
         delay(200);
         for (int i = 180; i >= 35; i--)    //moves hand to button
         {
           handServo.write(i);
-          delay(20);
+          delay(15);
         }
         delay(1000);
         handServo.write(2);
@@ -54,13 +54,13 @@ void loop()
         for (int i = 2; i <=180; i++)
         {
           handServo.write(i);           //moves hand back
-          delay(20);
+          delay(15);
         }
         delay(500);
         for (int i = 140; i >= 70; i--)
         {
           boxServo.write(i);
-          delay(15);
+          delay(12);
         }
         delay(200);
         action++;
@@ -71,32 +71,33 @@ void loop()
         for (int i = 70; i <=140; i++)       //opens box
         {
           boxServo.write(i);    // sets the servo position according to the scaled value
-          delay(15);
+          delay(10);
         }
         delay(200);
         for (int i = 180; i >= 15; i--)    //moves hand to button
         {
           handServo.write(i);
-          delay(20);
+          delay(12);
         }
+        delay(400);
         for (int i = 15; i <=180; i++)
         {
           handServo.write(i);           //moves hand back
-          delay(20);
+          delay(10);
         }
-        delay(500);
+        delay(200);
         for (int i = 140; i >= 70; i--)     //box closes
         {
           boxServo.write(i);
-          delay(15);
+          delay(12);
         }
         delay(3000);
         for (int i = 70; i <= 140; i++)     //box opens
         {
           boxServo.write(i);    
-          delay(15);
+          delay(10);
         }
-        delay(300);
+        delay(200);
         for (int i = 180; i >= 15; i--)    //moves hand to button
         {
           handServo.write(i);
@@ -104,16 +105,17 @@ void loop()
         }
         delay(1000);
         handServo.write(2);           //presses button
+        delay(700);
         for (int i = 2; i <=180; i++)
         {
           handServo.write(i);           //moves hand back
-          delay(20);
+          delay(10);
         }
         delay(300);
         for (int i = 140; i >= 70; i--)     //box closes
         {
           boxServo.write(i);
-          delay(15);
+          delay(10);
         }
       }
 }
