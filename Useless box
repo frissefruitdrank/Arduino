@@ -35,29 +35,32 @@ void loop()
     
     {
       Serial.println("Action 1");           
-      for (int i = 70; i <= 110; i++)
+      for (int i = 70; i <= 140; i++)
       {
         boxServo.write(i);    // sets the servo position according to the scaled value
         delay(20);          // waits for the servo to get there
       }
+      delay(200);
       for (int i = 180; i >= 35; i--)
       {
         handServo.write(i);
         delay(20);
       }
-      delay(1000);
-      handServo.write(26);
-      delay(200);
+     delay(2000);
+      handServo.write(1);
+      delay(700);
       for (int i = 26; i <=180; i++)
       {
         handServo.write(i);
         delay(20);
       }
-      for (int i = 110; i >= 70; i--)
+      delay(500);
+      for (int i = 140; i >= 70; i--)
       {
         boxServo.write(i);
         delay(20);
       }
+      delay(200);
       action++;
     }
-}
+}}
