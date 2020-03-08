@@ -10,3 +10,4 @@ SCK (Serial Clock) - The clock pulses which synchronize data transmission genera
 and one line specific for every device:
 
 SS (Slave Select) - the pin on each device that the master can use to enable and disable specific devices.
+
